@@ -105,7 +105,7 @@ const clickEmail = (text, text1) =>{
     readCard.classList = `flex justify-between items-center bg-white p-4 rounded-2xl mb-2`
     readCard.innerHTML = `
     <h5 class="text-slate-900 text-base font-semibold leading-relaxed">${text}</h5>
-                            <p class="flex items-center gap-4 text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-eye.png" alt="">${text1}</p>
+                            <p class="flex items-center gap-4 text-slate-900 text-opacity-60 text-base font-normal pr-4"><img src="images/tabler-icon-eye.png" alt="">${text1}</p>
     `
     readContainer.appendChild(readCard);
     count++;
