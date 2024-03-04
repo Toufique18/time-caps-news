@@ -76,15 +76,15 @@
 
                 <div class="flex-1 lg:flex justify-between items-center">
                     <div class="lg:w-3/5">
-                        <h2><span class="text-white text-5xl font-black">Welcome to the </span><span
-                                class="text-indigo-400 text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-indigo-700  ">TimeCaps</span><span
-                                class="text-white text-5xl font-black "> Forum</span></h2>
+                        <h2><span class="text-white text-4xl lg:text-5xl font-black">Welcome to the </span><span
+                                class="text-indigo-400 text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-indigo-700  ">TimeCaps</span><span
+                                class="text-white text-4xl lg:text-5xl font-black "> Forum</span></h2>
                         <p class="text-white text-opacity-80 text-base font-medium leading-9">Where memories are
                             preserved, shared, and cherished forever!!</p>
-                        <label class="input input-bordered flex items-center gap-2 w-4/5 bg-white rounded-[50px]">
+                        <label class="input input-bordered flex items-center gap-2 w-full h-14 lg:w-4/5 bg-white rounded-[50px]">
                             <input id="search-field" type="text" class="grow" placeholder="Search here anything" />
                             <button onclick="handleSearch()"
-                                class="btn btn-error border-0 text-white bg-indigo-400 rounded-[46px]">Search</button>
+                                class="btn btn-error h-10 border-0 text-white bg-indigo-400 rounded-[46px]">Search</button>
                         </label>
                     </div>
                     <div class="bg-white p-3 rounded-xl lg:w-2/5 mt-2">
@@ -120,7 +120,10 @@
                 generations. Join today!</p>
         </div>
         <section class="container mx-auto lg:px-20 px-5 py-5">
-            <span id="load-spiner" class="loading loading-spinner loading-lg justify-center"></span>
+            <div id="load-spiner" class="text-center p-10">
+                <span  class="loading loading-spinner loading-lg justify-center"></span>
+
+            </div>
             <div class="flex-1 lg:flex gap-4">
                 <!--news section-->
                 <div id="news-Container" class="lg:w-3/5 ">
@@ -171,6 +174,7 @@
                         <p class="text-slate-900 text-opacity-60 text-base font-normal flex items-center space-x-2"><img
                                 src="images/green.png" alt="">Mark as read (<span id="mark-read">0</span>)</p>
                     </div>
+                    <hr>
                     <div id="read-Content">
 
                     </div>
@@ -199,6 +203,15 @@
 
         </section>
 
+        <!--latest section-->
+        <div class="container mx-auto lg:px-20 px-5 py-5">
+            <div class="lg:p-10">
+                <h1 class="text-center text-slate-900 text-4xl font-black">Latest Posts</h1>
+                <p class="text-center text-slate-900 text-opacity-60 text-lg font-normal">Explore TimeCaps, a dynamic blogging platform where users share their thoughts, experiences, and insights. Stay updated with the latest posts on a variety of topics. Discover, engage, and learn!</p>
+            </div>
+
+        </div>
+
         <section class="container mx-auto lg:px-20 px-5 py-5">
             <div id="latest-news-container" class="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4">
                 <!--
@@ -223,26 +236,28 @@
                     </div>
                 </div>-->
             </div>
-            
-        
+
+
 
         </section>
-        
-        
+
+
     </main>
     <footer>
         <section class="bg-slate-900 bg-opacity-10">
             <div class="container mx-auto lg:px-20 px-5 py-5 text-center">
-                <div class="px-20 lg:mt-8">
+                <div class="lg:px-20 lg:mt-8">
                     <h1 class="text-center text-slate-900 text-4xl font-black my-2">TimeCaps</h1>
-                    <p class="text-center text-slate-900 text-opacity-70 text-base font-normal">Explore captivating stories and insightful perspectives on TimeCaps blogging website. Join a vibrant community, share experiences, and ignite conversations that transcend time and inspire change together</p>
+                    <p class="text-center text-slate-900 text-opacity-70 text-base font-normal">Explore captivating
+                        stories and insightful perspectives on TimeCaps blogging website. Join a vibrant community,
+                        share experiences, and ignite conversations that transcend time and inspire change together</p>
                 </div>
                 <div class="flex items-center gap-5 py-4 justify-center my-4">
                     <i class="fa-brands fa-twitter fa-2xl"></i>
                     <i class="fa-brands fa-facebook-f fa-2xl"></i>
                     <i class="fa-brands fa-instagram fa-2xl"></i>
                     <i class="fa-brands fa-github fa-2xl"></i>
-    
+
                 </div>
                 <hr class="border border-slate-700 border-opacity-10">
                 <p class="text-slate-900 text-opacity-50 text-base font-light my-6">2024, All Rights Reserved.</p>

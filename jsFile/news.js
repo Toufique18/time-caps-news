@@ -1,4 +1,4 @@
-const loadNews = async (searchText = 'comedy') => {
+const loadNews = async (searchText = "") => {
     const res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`)
     const data = await res.json();
     const news = data.posts;
@@ -51,7 +51,9 @@ const displayNews = (news) => {
                                 }</p>
                                 <p class="flex items-center text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-clock-hour-9.png" alt=""> ${New?.posted_time} min</p>
                             </div>
+                            <div class="tooltip" data-tip="Mark as read">
                             <button onclick="clickEmail('${New?.title.replace("'", "\\'")}','${New?.view_count}')"><img src="images/email.png" alt=""></button>
+                            </div>
                         </div>
 
 
