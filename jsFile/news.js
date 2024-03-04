@@ -25,7 +25,7 @@ const displayNews = (news) => {
 
 
         const newsCard = document.createElement('div');
-        newsCard.classList = `flex gap-4 w-full bg-zinc-100 rounded-3xl p-5 mb-3 hover:bg-indigo-400 hover:bg-opacity-10 hover:border-indigo-400 hover:border`;
+        newsCard.classList = `flex gap-4 w-full bg-zinc-100 rounded-3xl p-3 lg:p-5 mb-3 hover:bg-indigo-400 hover:bg-opacity-10 hover:border-indigo-400 hover:border`;
         newsCard.innerHTML = `
         <div>
                         <div class="indicator">
@@ -34,7 +34,7 @@ const displayNews = (news) => {
                           </div>
                     </div>
                     <div class ="w-full">
-                        <div class="flex gap-3 items-center">
+                        <div class="flex-1 lg:flex gap-3 items-center">
                             <p class="text-slate-900 text-opacity-80 text-sm font-medium"># ${New.category
                             }</p>
                             <p class="text-slate-900 text-opacity-80 text-sm font-medium">Author : ${New?.author?.name}</p>
