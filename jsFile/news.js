@@ -12,7 +12,6 @@ const loadNews = async (searchText = 'comedy') => {
 const displayNews = (news) => {
     //console.log(news);
     const newsContainer = document.getElementById('news-Container');
-    const indicatorChange = document.getElementById('indicator-change');
 
     newsContainer.textContent= "";
     
@@ -118,3 +117,57 @@ const updatCount = ()=> {
 }
 
 loadNews();
+
+
+//latest post
+
+const loadLatestNews = async () => {
+    const res = await fetch(' https://openapi.programming-hero.com/api/retro-forum/latest-posts')
+    const data = await res.json();
+    const latestNews = data;
+
+    //console.log(latestNews)
+    displayLatestNews(latestNews);
+
+}
+
+const displayLatestNews = (latestNews) =>{
+
+    const latestNewsContainer = document.getElementById('latest-news-container');
+
+    latestNews.forEach(test => {
+
+        //console.log(test)
+        const latestNewsCard = document.createElement('div');
+        latestNewsCard.classList = `card bg-base-100 shadow-xl border-2 border-gray-400`
+        latestNewsCard.innerHTML = `
+        <figure class="px-5 pt-5  lg:px-8 lg:pt-8 rounded-[20px]"><img class="rounded-[20px]" src="${test.cover_image}" alt="Shoes" /></figure>
+                    <div class="card-body p-4 lg:p-8">
+                        <div class="flex items-center gap-4">
+                            <img src="images/calendar.png" alt="">
+                            <p class="text-slate-900 text-opacity-60 text-base font-normal">${test?.author?.posted_date || "No publish date"}</p>
+                        </div>
+                        <h2 class="card-title lg:text-xl text-base text-slate-900 font-extrabold  leading-[30px]">${test?.title}</h2>
+                        <p class="text-sm text-slate-900 text-opacity-60 lg:text-base font-normal leading-relaxed p-0">${test?.description}</p>
+                        <div class="flex items-center gap-4">
+                             <img class="w-11 h-11 rounded-full" src="${test?.profile_image}" />
+                            <div>
+                                <p class="text-slate-900 text-base font-bold">${test?.author?.name}</p>
+                                <p class="text-slate-900 text-opacity-60 text-sm font-normal">${test?.author?.designation ||"Unknown"}</p>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+        `
+
+        latestNewsContainer.appendChild(latestNewsCard);
+
+
+    });
+
+
+}
+
+
+loadLatestNews();
