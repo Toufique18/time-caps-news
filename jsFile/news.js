@@ -46,12 +46,12 @@ const displayNews = (news) => {
                         <hr class="border-dashed">
                         <div class="flex justify-between pt-3">
                             <div class="flex gap-4 items-center">
-                                <p class="flex items-center text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-message-2.png" alt=""> ${New?.comment_count}</p>
-                                <p class="flex items-center text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-eye.png" alt=""> ${New?.view_count
+                                <p class="flex items-center text-slate-900 text-opacity-60 lg:text-base text-xs font-normal"><img src="images/tabler-icon-message-2.png" alt=""> ${New?.comment_count}</p>
+                                <p class="flex items-center text-slate-900 text-opacity-60 lg:text-base text-xs font-normal"><img src="images/tabler-icon-eye.png" alt=""> ${New?.view_count
                                 }</p>
-                                <p class="flex items-center text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-clock-hour-9.png" alt=""> ${New?.posted_time} min</p>
+                                <p class="flex items-center text-slate-900 text-opacity-60 lg:text-base text-xs font-normal"><img src="images/tabler-icon-clock-hour-9.png" alt=""> ${New?.posted_time} min</p>
                             </div>
-                            <div class="tooltip" data-tip="Mark as read">
+                            <div class="tooltip items-center" data-tip="Mark as read">
                             <button onclick="clickEmail('${New?.title.replace("'", "\\'")}','${New?.view_count}')"><img src="images/email.png" alt=""></button>
                             </div>
                         </div>
