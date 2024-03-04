@@ -3,7 +3,10 @@ const loadNews = async (searchText = 'comedy') => {
     const data = await res.json();
     const news = data.posts;
     //console.log(news);
-    displayNews(news);
+    setTimeout( () =>{
+        displayNews(news);
+
+    },2000)
 }
 
 const displayNews = (news) => {
@@ -11,7 +14,7 @@ const displayNews = (news) => {
     const newsContainer = document.getElementById('news-Container');
     const indicatorChange = document.getElementById('indicator-change');
 
-    //newsContainer.textContent= "";
+    newsContainer.textContent= "";
     
 
 
@@ -49,7 +52,7 @@ const displayNews = (news) => {
                                 }</p>
                                 <p class="flex items-center text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-clock-hour-9.png" alt=""> ${New?.posted_time} min</p>
                             </div>
-                            <button><img src="images/email.png" alt=""></button>
+                            <button onclick="clickEmail('${New?.title.replace("'", "\\'")}','${New?.view_count}')"><img src="images/email.png" alt=""></button>
                         </div>
 
 
@@ -59,36 +62,59 @@ const displayNews = (news) => {
 
         newsContainer.appendChild(newsCard);
         //activeStatus(New.isActive);
-        const indicatorChange = newsCard.querySelector('.indicator-item'); // Select indicator within the scope of the news card
+        const indicatorChange = newsCard.querySelector('.indicator-item');
+         // Select indicator within the scope of the news card
         if (New.isActive) {
             indicatorChange.classList.add('bg-green-500');
         }else{
             indicatorChange.classList.add('bg-red-500');
         }
-    })
+    });
+    toggleloadingSpinner(false);
     
 }
 
 //handle search
 const handleSearch = () =>{
+    toggleloadingSpinner(true)
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     console.log(searchText)
     loadNews(searchText);
 }
 
+const toggleloadingSpinner = (isLoading) => {
+    const loadingSpinner = document.getElementById('load-spiner')
+    if (isLoading) {
+        loadingSpinner.classList.remove('hidden');
+    }
+    else {
+        setTimeout( ()=>{
+            loadingSpinner.classList.add('hidden');
 
-// const activeStatus = (isActiving) => {
-//     const indicatorChange = document.getElementById('indicator-change')
-//     if (isActiving) {
-//         indicatorChange.classList.add('bg-green-500');
-//         indicatorChange.classList.remove('bg-red-500');
+        },0)
+    }
+}
 
-//     }
-//     else {
-//         indicatorChange.classList.add('bg-red-500');
-//         indicatorChange.classList.remove('bg-green-500');
-//     }
-// }
+let count =0;
+
+const readContainer = document.getElementById('read-Content');
+const clickEmail = (text, text1) =>{
+    console.log(text,text1);
+    const readCard = document.createElement('div');
+    readCard.classList = `flex justify-between items-center bg-white p-4 rounded-2xl mb-2`
+    readCard.innerHTML = `
+    <h5 class="text-slate-900 text-base font-semibold leading-relaxed">${text}</h5>
+                            <p class="flex items-center gap-4 text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-eye.png" alt="">${text1}</p>
+    `
+    readContainer.appendChild(readCard);
+    count++;
+    updatCount();
+}
+
+const updatCount = ()=> {
+    const markRead = document.getElementById('mark-read');
+    markRead.innerText = count;
+}
 
 loadNews();

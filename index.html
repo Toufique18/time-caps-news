@@ -116,6 +116,7 @@
             <p class="text-center text-slate-900 text-opacity-60 text-lg font-normal lg:px-14 p-3">TimeCaps is a virtual vault where users store cherished memories, connect with nostalgia, and share experiences across generations. Join today!</p>
         </div>
         <section class="container mx-auto lg:px-20 px-5 py-5">
+            <span id="load-spiner" class="loading loading-spinner loading-lg justify-center"></span>
             <div  class="flex-1 lg:flex gap-4">
                 <!--news section-->
                 <div id="news-Container" class="lg:w-3/5 ">
@@ -154,9 +155,9 @@
                 <div class="bg-slate-900 bg-opacity-5 rounded-3xl lg:w-2/5 p-4">
                     <div class="flex justify-between">
                         <h5 class="text-slate-900 text-xl font-bold">Title</h5>
-                        <p class="text-slate-900 text-opacity-60 text-base font-normal">Mark as read (4)</p>
+                        <p class="text-slate-900 text-opacity-60 text-base font-normal flex items-center space-x-2"><img src="images/green.png" alt="">Mark as read (<span id="mark-read">0</span>)</p>
                     </div>
-                    <div>
+                    <div id="read-Content">
                         <div class="flex items-center bg-white p-4 rounded-2xl mb-2">
                             <h5 class="text-slate-900 text-base font-semibold leading-relaxed">10 Kids Unaware of Their Halloween Costume</h5>
                             <p class="flex items-center gap-4 text-slate-900 text-opacity-60 text-base font-normal"><img src="images/tabler-icon-eye.png" alt="">1500</p>
